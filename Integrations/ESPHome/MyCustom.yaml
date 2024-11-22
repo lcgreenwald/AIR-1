@@ -1,0 +1,80 @@
+light:
+  - platform: esp32_rmt_led_strip
+    id: !extend rgb_light
+    name: "RGB Light"
+    pin: GPIO3
+    rmt_channel: 0
+    default_transition_length: 0s
+    chipset: WS2812
+    num_leds: 3
+    rgb_order: grb
+    effects:
+      - random:
+      - random:
+          name: Random Effect With Custom Values
+          transition_length: 5s
+          update_interval: 7s
+      - addressable_rainbow:
+      - addressable_rainbow:
+          name: Rainbow Effect With Custom Values
+          speed: 10
+          width: 50
+      - addressable_color_wipe:
+      - addressable_color_wipe:
+          name: Color Wipe Effect With Custom Values
+          colors:
+            - red: 100%
+              green: 100%
+              blue: 100%
+              num_leds: 5
+              gradient: true
+            - red: 0%
+              green: 0%
+              blue: 0%
+              num_leds: 1
+          add_led_interval: 100ms
+          reverse: false
+      - addressable_random_twinkle:
+      - addressable_random_twinkle:
+          name: Random Twinkle Effect With Custom Values
+          twinkle_probability: 5%
+          progress_interval: 32ms
+      - flicker:
+          name: Flicker Effect With Custom Values
+          alpha: 95%
+          intensity: 1.5%
+
+
+text_sensor:
+  - id: !remove voc_quality
+
+  - platform: template
+    name: "VOC Quality"
+    id: voc_quality
+    icon: mdi:air-filter
+    lambda: |-
+      if (id(sen55_voc).state < 150) {
+        return std::string("Good");} 
+      else if (id(sen55_voc).state < 250) {
+        return std::string("Moderate");} 
+      else if (id(sen55_voc).state < 400) {
+        return std::string("High");} 
+      else {
+        return std::string("Very High");}
+
+  - platform: template
+    name: "CO2 Quality"
+    id: co2_ppm
+    icon: mdi:air-filter
+    lambda: |-
+      if (id(co2).state < 1000) {
+        return std::string("Good");} 
+      else if (id(sen55_voc).state < 2000) {
+        return std::string("Acceptable");} 
+      else if (id(sen55_voc).state < 5000) {
+        return std::string("Poor");} 
+      else {
+        return std::string("Very Poor");}
+        
+
+
