@@ -49,6 +49,22 @@ sensor:
       filters:
         - lambda: return x - id(scd40_temperature_offset).state;
 
+  - platform: dps310
+    id: !extend dps_310
+    pressure:
+      name: "DPS310 Pressure"
+      id: dps310pressure
+      accuracy_decimals: 1
+    temperature:
+      name: "DPS310 Temperature"
+      id: dps310temperature
+      accuracy_decimals: 1
+      unit_of_measurement: '°F'
+      filters:
+        - lambda: return x * (9.0/5.0) + 32.0;
+    update_interval: 5s
+    i2c_id: bus_a 
+
 
 text_sensor:
   - id: !remove voc_quality
