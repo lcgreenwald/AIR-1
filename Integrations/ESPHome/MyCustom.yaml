@@ -27,11 +27,11 @@ number:
   - platform: template
     name: dps310 Temperature Offset
     id: dps310_temperature_offset
-    initial_value: 0
+    initial_value: 12.0
     min_value: -70.0
     max_value: 70.0
     entity_category: "CONFIG"
-    unit_of_measurement: "°C"
+    unit_of_measurement: "°F"
     optimistic: true
     update_interval: never
     step: 0.1
