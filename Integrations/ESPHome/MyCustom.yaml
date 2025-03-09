@@ -82,19 +82,19 @@ sensor:
 
   - platform: mics_4514
     id: !extend mics4514
-#    nitrogen_dioxide:
-#      name: Nitrogen Dioxide
-#    carbon_monoxide:
-#      name: Carbon Monoxide
-#    hydrogen:
-#      name: Hydrogen
-#    ethanol:
-#     name: Ethanol
-#    methane:
-#      name: Methane
-#    ammonia:
-#      name: Ammonia
-#    update_interval: 10s
+    !remove nitrogen_dioxide:
+      !remove name: Nitrogen Dioxide
+    !remove carbon_monoxide:
+      !remove name: Carbon Monoxide
+    !remove hydrogen:
+      !remove name: Hydrogen
+    !remove ethanol:
+      !remove name: Ethanol
+    !remove methane:
+      !remove name: Methane
+    !remove ammonia:
+      !remove name: Ammonia
+    !remove update_interval: 10s
 
 text_sensor:
   - id: !remove voc_quality
