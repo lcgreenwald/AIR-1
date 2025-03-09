@@ -39,6 +39,9 @@ number:
 
 
 sensor:
+  - platform: mics_4514
+    id: !extend mics4514
+
   - platform: scd4x
     id: !extend scd40
     co2:
