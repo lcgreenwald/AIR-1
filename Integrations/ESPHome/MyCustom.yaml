@@ -80,6 +80,21 @@ sensor:
     update_interval: 5s
     i2c_id: bus_a 
 
+  - platform: mics_4514
+    id: !extend mics4514
+    nitrogen_dioxide: !remove
+      name: Nitrogen Dioxide
+    carbon_monoxide: !remove
+      name: Carbon Monoxide
+    hydrogen: !remove
+      name: Hydrogen
+    ethanol: !remove
+      name: Ethanol
+    methane: !remove
+      name: Methane
+    ammonia: !remove
+      name: Ammonia
+    update_interval: 10s
 
 text_sensor:
   - id: !remove voc_quality
