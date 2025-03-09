@@ -303,8 +303,8 @@ sensor:
     icon: mdi:air-filter
     update_interval: 10s
 
-#  - platform: mics_4514
-#    id: mics4514
+  - platform: mics_4514
+    id: mics4514
 #    nitrogen_dioxide:
 #      name: Nitrogen Dioxide
 #    carbon_monoxide:
