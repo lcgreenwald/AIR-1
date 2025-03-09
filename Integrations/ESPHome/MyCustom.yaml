@@ -41,8 +41,7 @@ number:
 
 
 sensor:
-  - platform: mics_4514
-    id: !extend mics4514
+  - id: !remove mics_4514
 
   - platform: scd4x
     id: !extend scd40
