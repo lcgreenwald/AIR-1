@@ -80,7 +80,6 @@ sensor:
     update_interval: 5s
     i2c_id: bus_a 
 
-  - id: !extend mics4514
 
 text_sensor:
   - id: !remove voc_quality
