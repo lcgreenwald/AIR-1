@@ -305,19 +305,19 @@ sensor:
 
   - platform: mics_4514
     id: mics4514
-#    nitrogen_dioxide:
-#      name: Nitrogen Dioxide
-#    carbon_monoxide:
-#      name: Carbon Monoxide
-#    hydrogen:
-#      name: Hydrogen
-#    ethanol:
-#      name: Ethanol
-#    methane:
-#      name: Methane
-#    ammonia:
-#      name: Ammonia
-#    update_interval: 10s
+    nitrogen_dioxide:
+      name: Nitrogen Dioxide
+    carbon_monoxide:
+      name: Carbon Monoxide
+    hydrogen:
+      name: Hydrogen
+    ethanol:
+      name: Ethanol
+    methane:
+      name: Methane
+    ammonia:
+      name: Ammonia
+    update_interval: 10s
 
 light:
   - platform: esp32_rmt_led_strip
