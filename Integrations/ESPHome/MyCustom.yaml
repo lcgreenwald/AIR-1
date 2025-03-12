@@ -140,7 +140,7 @@ switch:
     restore_mode: RESTORE_DEFAULT_ON
     optimistic: true
     entity_category: "config"
-
+ 
 #Used To Control RGB Light On Startup. Tells User Status Of Device
 interval:
   - interval: 1s
@@ -152,12 +152,8 @@ interval:
             - switch.is_on: startup_light_blink
 
           then:
-            - light.turn_on:
+            - light.toggle:
                 id: rgb_light
-                brightness: 100%
-                red: !lambda 'return std::strtol(get_mac_address().substr(6, 2).c_str(), nullptr, 16) / 255.0f;'
-                green: !lambda 'return std::strtol(get_mac_address().substr(8, 2).c_str(), nullptr, 16) / 255.0f;'
-                blue: !lambda 'return std::strtol(get_mac_address().substr(10, 2).c_str(), nullptr, 16) / 255.0f;'
             - lambda: 'id(cycleCounter) += 1;'
 
   - interval: 1s
