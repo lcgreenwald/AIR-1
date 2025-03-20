@@ -94,7 +94,8 @@ sensor:
       name: Methane
     ammonia: !remove
       name: Ammonia
-    update_interval: 10s
+#    update_interval: 10s
+    update_interval: !remove
 
 text_sensor:
   - id: !remove voc_quality
