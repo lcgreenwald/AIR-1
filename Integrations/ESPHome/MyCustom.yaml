@@ -81,7 +81,8 @@ sensor:
     i2c_id: bus_a 
 
   - platform: mics_4514
-    id: !extend mics4514
+#    id: !extend mics4514
+    id: !remove mics4514
     nitrogen_dioxide: !remove
       name: Nitrogen Dioxide
     carbon_monoxide: !remove
