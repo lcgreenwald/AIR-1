@@ -96,6 +96,45 @@ sensor:
       name: Ammonia
     update_interval: 10s
 
+  - platform: template
+    name: "PM 0.3 To 1 µm"
+    id: !extend pm0_3_to_1
+    disabled_by_default: false
+    lambda: return id(pm_1_0).state;
+    unit_of_measurement: "µg/m³"
+    state_class: measurement
+    icon: mdi:air-filter
+    update_interval: 10s
+  
+  - platform: template
+    name: "PM 1 To 2.5 µm"
+    id: !extend pm1_to_2_5
+    disabled_by_default: false
+    lambda: return id(pm_2_5).state - id(pm_1_0).state;
+    unit_of_measurement: "µg/m³"
+    state_class: measurement
+    icon: mdi:air-filter
+    update_interval: 10s
+  
+  - platform: template
+    name: !extend "PM 2.5 To 4 µm"
+    id: pm2_5_to_4
+    disabled_by_default: false
+    lambda: return id(pm_4_0).state - id(pm_2_5).state;
+    unit_of_measurement: "µg/m³"
+    state_class: measurement
+    icon: mdi:air-filter
+    update_interval: 10s
+
+  - platform: template
+    name: !extend "PM 4 To 10 µm"
+    id: pm4_to_10
+    disabled_by_default: false
+    lambda: return id(pm_10_0).state - id(pm_4_0).state;
+    unit_of_measurement: "µg/m³"
+    icon: mdi:air-filter
+    update_interval: 10s
+  
 text_sensor:
   - id: !remove voc_quality
 
