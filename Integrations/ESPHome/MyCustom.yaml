@@ -117,7 +117,7 @@ sensor:
     update_interval: 10s
   
   - platform: template
-    name: !extend "PM 2.5 To 4 µm"
+#    name: !extend "PM 2.5 To 4 µm"
     id: pm2_5_to_4
     disabled_by_default: false
     lambda: return id(pm_4_0).state - id(pm_2_5).state;
@@ -127,7 +127,7 @@ sensor:
     update_interval: 10s
 
   - platform: template
-    name: !extend "PM 4 To 10 µm"
+#    name: !extend "PM 4 To 10 µm"
     id: pm4_to_10
     disabled_by_default: false
     lambda: return id(pm_10_0).state - id(pm_4_0).state;
